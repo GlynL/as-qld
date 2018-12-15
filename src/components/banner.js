@@ -11,6 +11,7 @@ const StyledSection = styled.section`
   background: #dddac5;
   min-height: 100vh;
   padding: 1rem;
+  padding-top: 0;
 `
 
 const Container = styled.div`

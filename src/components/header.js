@@ -1,42 +1,43 @@
-import { Link } from 'gatsby'
+import { StaticQuery, graphql } from 'gatsby'
+import Img from 'gatsby-image'
 import PropTypes from 'prop-types'
 import React from 'react'
+import styled from 'styled-components'
 
-const Header = ({ siteTitle }) => (
-  <div
-    style={{
-      background: 'rebeccapurple',
-      marginBottom: '1.45rem',
-    }}
-  >
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '1.45rem 1.0875rem',
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: 'white',
-            textDecoration: 'none',
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
+import Navbar from './navbar'
+
+const StyledImage = styled(Img)`
+  margin: 0 auto;
+  max-width: 345px;
+  max-height: 150px;
+`
+const Container = styled.div`
+  padding: 1rem;
+  margin: 0 auto;
+`
+
+const Header = ({ data }) => (
+  <div>
+    <Container>
+      <StyledImage fluid={data.logo.childImageSharp.fluid} />
+    </Container>
+    <Navbar />
   </div>
 )
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: '',
-}
-
-export default Header
+export default () => (
+  <StaticQuery
+    query={graphql`
+      query {
+        logo: file(relativePath: { eq: "as-logo.png" }) {
+          childImageSharp {
+            fluid(maxWidth: 345, maxHeight: 150) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    `}
+    render={data => <Header data={data} />}
+  />
+)

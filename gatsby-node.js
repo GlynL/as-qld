@@ -6,12 +6,14 @@
 
 // You can delete this file if you're not using it
 
+const { createFilePath } = require('gatsby-source-filesystem')
+
 const path = require('path')
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
 
-  const blogPostTemplate = path.resolve(`src/templates/blogTemplate.js`)
+  const eventPostTemplate = path.resolve(`src/templates/eventTemplate.js`)
 
   return graphql(`
     {
@@ -33,10 +35,10 @@ exports.createPages = ({ actions, graphql }) => {
 
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
       createPage({
-        path: node.fields.slug,
-        component: blogPostTemplate,
+        path: 'events' + node.fields.slug,
+        component: eventPostTemplate,
         context: {
-          id,
+          id: node.id,
         }, // additional data can be passed via context
       })
     })
@@ -48,12 +50,14 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   // fmImagesToRelative(node) // convert image paths for gatsby images
 
   if (node.internal.type === `MarkdownRemark`) {
-    console.log(node)
     const value = createFilePath({ node, getNode })
+
+    console.log(value)
     createNodeField({
       name: `slug`,
       node,
       value,
     })
+    // console.log(node)
   }
 }

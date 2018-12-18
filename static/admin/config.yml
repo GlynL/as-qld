@@ -5,21 +5,21 @@ backend:
 media_folder: static/assets
 public_folder: assets
 
-collections:
-  - name: blog
-    label: Blog
-    folder: blog
-    create: true
-    slug: '{{slug}}'
-    fields:
-      - { name: date, label: Date, widget: date }
-      - { name: title, label: Title }
-      - { name: body, label: Body, widget: markdown }
+# collections:
+#   - name: blog
+#     label: Blog
+#     folder: blog
+#     create: true
+#     slug: '{{slug}}'
+#     fields:
+#       - { name: date, label: Date, widget: date }
+#       - { name: title, label: Title }
+#       - { name: body, label: Body, widget: markdown }
   - name: event
     label: Event
     folder: event
     create: true
-    slug: '{{slug}}'
+    slug: '{{year}}-{{month}}-{{day}}_{{slug}}'
     fields:
       - { name: date, label: Date, widget: date }
       - { name: title, label: Title }

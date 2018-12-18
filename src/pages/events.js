@@ -1,57 +1,16 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
-import styled from 'styled-components'
+import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 
 import Title from '../components/h1'
-
-const StyledLink = styled(Link)`
-  text-decoration: none;
-  color: inherit;
-`
-
-const List = styled.ul`
-  list-style: none;
-  padding-left: 0;
-`
-
-const ListItem = styled.li`
-  margin-bottom: 2rem;
-`
-
-const Small = styled.p`
-  font-size: 0.7rem;
-  opacity: 0.8;
-`
-
-const Heading = styled.h2`
-  margin-bottom: 0;
-`
-
-const renderEvents = data => {
-  const events = data.allMarkdownRemark.edges
-  const upcomingEvents = events.filter(({ node: event }) => {
-    const date = new Date(event.frontmatter.date)
-    const now = new Date()
-    return date > now
-  })
-  return upcomingEvents.map(({ node: event }) => (
-    <StyledLink to={`/events${event.fields.slug}`}>
-      <ListItem key={event.fields.slug}>
-        <Heading>{event.frontmatter.title}</Heading>
-        <Small>{event.frontmatter.date}</Small>
-        <div dangerouslySetInnerHTML={{ __html: event.html }} />
-      </ListItem>
-    </StyledLink>
-  ))
-}
+import EventsList from '../components/events-list'
 
 const Events = ({ data }) => (
   <Layout>
     <SEO title="Events" />
     <Title>Upcoming Events</Title>
-    <List>{renderEvents(data)}</List>
+    <EventsList events={data.allMarkdownRemark.edges} />
   </Layout>
 )
 

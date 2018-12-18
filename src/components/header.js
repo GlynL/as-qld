@@ -1,6 +1,5 @@
 import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
 

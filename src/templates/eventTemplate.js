@@ -1,5 +1,15 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import Layout from '../components/layout'
+import styled from 'styled-components'
+
+const Small = styled.p`
+  font-size: 0.7rem;
+  opacity: 0.8;
+`
+const Title = styled.h1`
+  margin-bottom: 0;
+`
 
 export default function Template({
   data, // this prop will be injected by the GraphQL query below.
@@ -7,14 +17,16 @@ export default function Template({
   const { markdownRemark } = data // data.markdownRemark holds our post data
   const { frontmatter, html } = markdownRemark
   return (
-    <div>
+    <Layout>
       <div>
-        <h1>{frontmatter.title}</h1>
-        <h2>{frontmatter.date}</h2>
+        <header>
+          <Title>{frontmatter.title}</Title>
+          <Small>{frontmatter.date}</Small>
+        </header>
         <div dangerouslySetInnerHTML={{ __html: html }} />
         <div>{frontmatter.description}</div>
       </div>
-    </div>
+    </Layout>
   )
 }
 

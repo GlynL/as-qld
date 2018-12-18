@@ -1,33 +1,76 @@
 import React from 'react'
-import { Link } from 'gatsby'
-
+import { Link, graphql } from 'gatsby'
+import styled from 'styled-components'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 
 import Title from '../components/h1'
 
-const Events = () => (
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+`
+
+const List = styled.ul`
+  list-style: none;
+  padding-left: 0;
+`
+
+const ListItem = styled.li`
+  margin-bottom: 2rem;
+`
+
+const Small = styled.p`
+  font-size: 0.7rem;
+  opacity: 0.8;
+`
+
+const Heading = styled.h2`
+  margin-bottom: 0;
+`
+
+const renderEvents = data => {
+  const events = data.allMarkdownRemark.edges
+  return events.map(({ node: event }) => (
+    <StyledLink to={`/events/${event.fields.slug}`}>
+      {console.log(event)}
+      <ListItem key={event.fields.slug}>
+        <Heading>{event.frontmatter.title}</Heading>
+        <Small>{event.frontmatter.date}</Small>
+        <div
+          dangerouslySetInnerHTML={{ __html: event.frontmatter.description }}
+        />
+      </ListItem>
+    </StyledLink>
+  ))
+}
+
+const Events = ({ data }) => (
   <Layout>
     <SEO title="Events" />
     <Title>Upcoming Events</Title>
-    <p>
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis, aperiam
-      amet, doloribus enim delectus, numquam distinctio provident quod
-      architecto in vitae ex doloremque fugiat incidunt nemo saepe repudiandae
-      nulla corporis!
-    </p>
-    <p>
-      Adipisci aut quos esse impedit voluptatem delectus ad nam, quibusdam,
-      natus hic architecto sit consequuntur repellat cum sapiente officia, vero
-      iusto. Laborum hic illo accusamus consequatur distinctio aperiam error
-      sapiente?
-    </p>
-    <p>
-      Eligendi, suscipit. Optio soluta cum quod veritatis quas inventore porro
-      consequatur dicta nemo voluptas. Laudantium atque sunt, illo esse modi
-      nobis delectus laborum doloribus quam nemo eligendi neque cupiditate hic.
-    </p>
+    <List>{renderEvents(data)}</List>
   </Layout>
 )
 
 export default Events
+
+export const query = graphql`
+  query {
+    allMarkdownRemark(sort: { fields: frontmatter___date, order: ASC }) {
+      edges {
+        node {
+          html
+          fields {
+            slug
+          }
+          frontmatter {
+            date(formatString: "dddd DD MMMM YYYY")
+            title
+            description
+          }
+        }
+      }
+    }
+  }
+`

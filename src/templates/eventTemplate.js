@@ -12,6 +12,7 @@ export default function Template({
         <h1>{frontmatter.title}</h1>
         <h2>{frontmatter.date}</h2>
         <div dangerouslySetInnerHTML={{ __html: html }} />
+        <div>{frontmatter.description}</div>
       </div>
     </div>
   )
@@ -25,6 +26,7 @@ export const pageQuery = graphql`
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title
+        description
       }
       fields {
         slug

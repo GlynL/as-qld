@@ -24,4 +24,4 @@ collections:
     fields:
       - { name: date, label: Date, widget: date }
       - { name: title, label: Title }
-      - { name: description, label: Description, widget: markdown }
+      - { name: body, label: Body, widget: markdown }

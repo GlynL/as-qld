@@ -6,23 +6,23 @@
 
 // You can delete this file if you're not using it
 
+const { createFilePath } = require('gatsby-source-filesystem')
+
 const path = require('path')
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
 
-  const blogPostTemplate = path.resolve(`src/templates/blogTemplate.js`)
+  const eventPostTemplate = path.resolve(`src/templates/eventTemplate.js`)
 
   return graphql(`
     {
-      allMarkdownRemark(
-        sort: { order: DESC, fields: [frontmatter___date] }
-        limit: 1000
-      ) {
+      allMarkdownRemark(limit: 1000) {
         edges {
           node {
-            frontmatter {
-              path
+            id
+            fields {
+              slug
             }
           }
         }
@@ -35,10 +35,29 @@ exports.createPages = ({ actions, graphql }) => {
 
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
       createPage({
-        path: node.frontmatter.path,
-        component: blogPostTemplate,
-        context: {}, // additional data can be passed via context
+        path: 'events' + node.fields.slug,
+        component: eventPostTemplate,
+        context: {
+          id: node.id,
+        }, // additional data can be passed via context
       })
     })
   })
+}
+
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions
+  // fmImagesToRelative(node) // convert image paths for gatsby images
+
+  if (node.internal.type === `MarkdownRemark`) {
+    const value = createFilePath({ node, getNode })
+
+    console.log(value)
+    createNodeField({
+      name: `slug`,
+      node,
+      value,
+    })
+    // console.log(node)
+  }
 }

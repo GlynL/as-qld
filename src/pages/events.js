@@ -31,15 +31,17 @@ const Heading = styled.h2`
 
 const renderEvents = data => {
   const events = data.allMarkdownRemark.edges
-  return events.map(({ node: event }) => (
-    <StyledLink to={`/events/${event.fields.slug}`}>
-      {console.log(event)}
+  const upcomingEvents = events.filter(({ node: event }) => {
+    const date = new Date(event.frontmatter.date)
+    const now = new Date()
+    return date > now
+  })
+  return upcomingEvents.map(({ node: event }) => (
+    <StyledLink to={`/events${event.fields.slug}`}>
       <ListItem key={event.fields.slug}>
         <Heading>{event.frontmatter.title}</Heading>
         <Small>{event.frontmatter.date}</Small>
-        <div
-          dangerouslySetInnerHTML={{ __html: event.frontmatter.description }}
-        />
+        <div dangerouslySetInnerHTML={{ __html: event.html }} />
       </ListItem>
     </StyledLink>
   ))
@@ -67,7 +69,6 @@ export const query = graphql`
           frontmatter {
             date(formatString: "dddd DD MMMM YYYY")
             title
-            description
           }
         }
       }

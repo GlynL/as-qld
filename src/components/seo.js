@@ -60,7 +60,9 @@ function SEO({ description, lang, meta, keywords, title }) {
                   : []
               )
               .concat(meta)}
-          />
+          >
+            <script src="https://js.stripe.com/v3/" />
+          </Helmet>
         )
       }}
     />

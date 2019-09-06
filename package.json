@@ -5,7 +5,7 @@
   "author": "glyn",
   "dependencies": {
     "babel-plugin-styled-components": "^1.9.4",
-    "gatsby": "^2.0.53",
+    "gatsby": "^2.15.9",
     "gatsby-image": "^2.0.20",
     "gatsby-plugin-manifest": "^2.0.9",
     "gatsby-plugin-netlify-cms": "^3.0.9",

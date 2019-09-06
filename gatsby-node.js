@@ -34,7 +34,6 @@ exports.createPages = ({ actions, graphql }) => {
     }
 
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-      console.log('slug', node.fields.slug)
       createPage({
         path: 'events' + node.fields.slug,
         component: eventPostTemplate,

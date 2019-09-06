@@ -16,7 +16,7 @@ const Nav = styled.nav`
   margin: 1rem;
   margin-top: 0;
   padding-top: 0.5rem;
-  dpadding-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
   border-bottom: 1px solid #333;
 `
 

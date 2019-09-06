@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import SEO from './seo'
 import Header from './header'
 import './layout.css'
 
@@ -16,6 +17,7 @@ const Container = styled.div`
 
 export default ({ children }) => (
   <Layout>
+    <SEO title="Membership" />
     <Header />
     <Container>{children}</Container>
   </Layout>

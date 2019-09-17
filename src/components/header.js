@@ -17,9 +17,9 @@ const Container = styled.div`
 
 const Header = ({ data }) => (
   <div>
-    <Container>
+    {/* <Container>
       <StyledImage fluid={data.logo.childImageSharp.fluid} />
-    </Container>
+    </Container> */}
     <Navbar />
   </div>
 )

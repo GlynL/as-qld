@@ -10,10 +10,8 @@ const Contact = () => (
     <SEO title="About" />
     <Title>Contact Us</Title>
     <p>
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis, aperiam
-      amet, doloribus enim delectus, numquam distinctio provident quod
-      architecto in vitae ex doloremque fugiat incidunt nemo saepe repudiandae
-      nulla corporis!
+      For queries and local information in other states – we encourage you to
+      contact your state Arthritis Foundation 1800 011 041
     </p>
     <p>
       Adipisci aut quos esse impedit voluptatem delectus ad nam, quibusdam,

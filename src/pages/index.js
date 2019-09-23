@@ -2,6 +2,8 @@ import React from 'react'
 import Banner from '../components/banner'
 import Highlights from '../components/highlights'
 import SEO from '../components/seo'
+import ThreeHighlights from '../components/three-highlights'
+import { infoHighlights } from '../data'
 
 const IndexPage = () => (
   <div>
@@ -16,7 +18,11 @@ const IndexPage = () => (
       ]}
     />
     <Banner />
-    <Highlights />
+    <ThreeHighlights
+      one={infoHighlights.aboutAS}
+      two={infoHighlights.resources}
+      three={infoHighlights.contact}
+    />
   </div>
 )
 

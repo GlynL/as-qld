@@ -42,7 +42,7 @@ export default () => (
       </List>
     </StyledDiv>
     <StyledDiv>
-      <StyledTitle>About Us</StyledTitle>
+      <StyledTitle>About AS</StyledTitle>
       <Paragraph>
         Providing support & information to those suffering from AS.
       </Paragraph>

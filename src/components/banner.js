@@ -6,6 +6,9 @@ import styled from 'styled-components'
 import Title from './h1'
 import Navbar from './navbar'
 import Membership from './membership'
+import ThreeHighlights from './three-highlights'
+
+import { stateHighlights } from '../data'
 
 const StyledSection = styled.section`
   background: #dddac5;
@@ -26,6 +29,10 @@ const StyledImg = styled(Img)`
   margin: 0 auto;
 `
 
+const StyledP = styled.p`
+  padding: 50px 150px;
+`
+
 const Banner = ({ data }) => (
   <StyledSection>
     <Navbar />
@@ -38,32 +45,18 @@ const Banner = ({ data }) => (
           present current information and details of activities.
         </p>
       </StyledHeader>
-      <section>
-        <div>
-          <Link to="qld">QLD</Link>
-          <p>
-            An active support group with social events. The QLD group supports a
-            weekly hydrotherapy exercise class in Brisbane for people with AS.
-          </p>
-        </div>
-        <div>
-          <Link to="vic">VIC</Link>
-          <p>
-            Active support groups with regular events and an annual seminar.
-          </p>
-        </div>
-        <div>
-          <Link to="wa">WA</Link>
-          <p>Some weekly exercise classes.</p>
-        </div>
-        <p>
-          People in other states are encouraged and invited to join the QLD or
-          Vic group. This will enable you to receive the AS Australia newsletter
-          – four times per year – which includes current Australian and
-          international news, advances in management, details of educational and
-          social events, and a regular exercise segment.
-        </p>
-      </section>
+      <ThreeHighlights
+        one={stateHighlights.qld}
+        two={stateHighlights.vic}
+        three={stateHighlights.wa}
+      />
+      <StyledP>
+        People in other states are encouraged and invited to join the QLD or Vic
+        group. This will enable you to receive the AS Australia newsletter –
+        four times per year – which includes current Australian and
+        international news, advances in management, details of educational and
+        social events, and a regular exercise segment.
+      </StyledP>
     </Container>
   </StyledSection>
 )

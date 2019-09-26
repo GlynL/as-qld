@@ -33,42 +33,73 @@ const StyledP = styled.p`
   padding: 50px 150px;
 `
 
-const Banner = ({ data }) => (
-  <StyledSection>
-    <Navbar />
-    <Container>
-      <StyledHeader>
-        <StyledImg fluid={data.image.childImageSharp.fluid} />
-        <Title>Ankylosing Spondylitis Australia</Title>
-        <p>
-          This website provides a place for the state AS support groups to
-          present current information and details of activities.
-        </p>
-      </StyledHeader>
-      <ThreeHighlights
-        one={stateHighlights.qld}
-        two={stateHighlights.vic}
-        three={stateHighlights.wa}
-      />
-      <StyledP>
-        People in other states are encouraged and invited to join the QLD or Vic
-        group. This will enable you to receive the AS Australia newsletter –
-        four times per year – which includes current Australian and
-        international news, advances in management, details of educational and
-        social events, and a regular exercise segment.
-      </StyledP>
-    </Container>
-  </StyledSection>
-)
+const Banner = ({ data }) =>
+  console.log(data) || (
+    <StyledSection>
+      <Navbar />
+      <Container>
+        <StyledHeader>
+          <StyledImg fluid={data.logo.childImageSharp.fluid} />
+          <Title>Ankylosing Spondylitis Australia</Title>
+          <p>
+            This website provides a place for the state AS support groups to
+            present current information and details of activities.
+          </p>
+        </StyledHeader>
+        <ThreeHighlights
+          one={{
+            ...stateHighlights.qld,
+            image: data.qld.childImageSharp.fixed,
+          }}
+          two={{
+            ...stateHighlights.vic,
+            image: data.vic.childImageSharp.fixed,
+          }}
+          three={{
+            ...stateHighlights.wa,
+            image: data.sa.childImageSharp.fixed,
+          }}
+        />
+        <StyledP>
+          People in other states are encouraged and invited to join the QLD or
+          Vic group. This will enable you to receive the AS Australia newsletter
+          – four times per year – which includes current Australian and
+          international news, advances in management, details of educational and
+          social events, and a regular exercise segment.
+        </StyledP>
+      </Container>
+    </StyledSection>
+  )
 
 export default props => (
   <StaticQuery
     query={graphql`
       query {
-        image: file(relativePath: { eq: "as-logo.png" }) {
+        logo: file(relativePath: { eq: "as-logo.png" }) {
           childImageSharp {
             fluid(maxWidth: 400, maxHeight: 175) {
               ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        qld: file(name: { in: "map-qld" }) {
+          childImageSharp {
+            fixed(width: 100, height: 100) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
+        vic: file(name: { in: "map-vic" }) {
+          childImageSharp {
+            fixed(width: 100, height: 100) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
+        sa: file(name: { in: "map-sa" }) {
+          childImageSharp {
+            fixed(width: 100, height: 100) {
+              ...GatsbyImageSharpFixed
             }
           }
         }

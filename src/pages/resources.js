@@ -1,4 +1,5 @@
 import React from 'react'
+import { withPrefix } from 'gatsby'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import Title from '../components/h1'
@@ -28,27 +29,9 @@ const Resources = () => {
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="https://arthritisaustralia.com.au/"
-          >
-            Arthitis Australia
-          </a>
-        </li>
-        <li>
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://www.apsoc.org.au/"
-          >
-            The Australian Pain Society
-          </a>
-        </li>
-        <li>
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
             href="http://asif.rheumanet.org/"
           >
-            Ankylosin Spondylitis International Federation
+            Ankylosing Spondylitis International Federation (ASIF)
           </a>
         </li>
         <li>
@@ -76,6 +59,58 @@ const Resources = () => {
             href="http://www.spondylitis.ca/"
           >
             Canadian Spondylitis Association
+          </a>
+        </li>
+        <li>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://arthritisaustralia.com.au/"
+          >
+            Arthitis Australia
+          </a>
+        </li>
+        <li>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://empowered.org/"
+          >
+            Empowered
+          </a>
+        </li>
+
+        <li>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://rheumatology.org.au"
+          >
+            Australian Rheumatology Association
+          </a>
+        </li>
+
+        <li>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.apsoc.org.au/"
+          >
+            The Australian Pain Society
+          </a>
+        </li>
+        <li>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.australian.physio"
+          >
+            Australian Physio Association (APA)
+          </a>
+        </li>
+        <li>
+          <a href={withPrefix('/AS-booklet.pdf')} target="_blank">
+            Guidebook
           </a>
         </li>
       </ul>

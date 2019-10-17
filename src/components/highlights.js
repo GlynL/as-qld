@@ -34,22 +34,23 @@ const List = styled.ul`
 export default () => (
   <StyledSection>
     <StyledDiv>
-      <StyledTitle>Upcoming Events</StyledTitle>
-      <List>
-        <li>Event One</li>
-        <li>Event Two</li>
-        <li>Event Three</li>
-      </List>
-    </StyledDiv>
-    <StyledDiv>
-      <StyledTitle>About AS</StyledTitle>
+      <StyledTitle>Events</StyledTitle>
       <Paragraph>
-        Providing support & information to those suffering from AS.
+        The group arranges social events and activities from time to time. This
+        is an opportunity for people to meet, chat and support each other. This
+        includes dinners, picnics, pizza evenings after hydro (open to all
+        whether attending hydro or not).
+        <br />
+        Members are sent email notification of events when they are organised.
       </Paragraph>
     </StyledDiv>
     <StyledDivRight>
-      <StyledTitle>Contact</StyledTitle>
-      <Paragraph>Feel free to contact us for further information.</Paragraph>
+      <StyledTitle>Membership</StyledTitle>
+      <Paragraph>
+        Members receive a newsletter 3 – 4 times per year which includes current
+        Australian and International news, advances in management, details of
+        educational and social events, and a regular exercise segment.
+      </Paragraph>
     </StyledDivRight>
   </StyledSection>
 )

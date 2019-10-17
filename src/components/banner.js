@@ -1,4 +1,5 @@
 import React from 'react'
+import '../config.css'
 import Img from 'gatsby-image'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import styled from 'styled-components'
@@ -11,7 +12,7 @@ import ThreeHighlights from './three-highlights'
 import { stateHighlights } from '../data'
 
 const StyledSection = styled.section`
-  background: #dddac5;
+  background: var(--main-bg-color);
   min-height: 100vh;
   padding-top: 0;
 `

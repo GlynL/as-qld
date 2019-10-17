@@ -1,4 +1,5 @@
 import React from 'react'
+import '../config.css'
 import Img from 'gatsby-image'
 import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
@@ -8,7 +9,8 @@ import Navbar from './navbar'
 import Membership from './membership'
 
 const StyledSection = styled.section`
-  background: #dddac5;
+  background: var(--main-bg-color);
+
   min-height: 100vh;
   padding-top: 0;
 `
@@ -27,7 +29,19 @@ const Banner = ({ data }) => (
         <Img fluid={data.image.childImageSharp.fluid} />
         <Title>AS Group of QLD</Title>
       </header>
-      <Membership />
+      <div>
+        <p>
+          Providing information and support to people living with AS, their
+          partners, families and friends and the wider community.
+        </p>
+        <p>
+          Supporting people living with AS by: Encouraging each person to take
+          responsibility for their health. Facilitating the provision of
+          exercise programs, classes and educational workshops Providing
+          opportunities to meet socially. Encouraging research into the cause,
+          management and prevention of AS.
+        </p>
+      </div>
     </Container>
   </StyledSection>
 )

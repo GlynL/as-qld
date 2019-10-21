@@ -113,6 +113,14 @@ const Resources = () => {
             Guidebook
           </a>
         </li>
+        <li>
+          <a
+            href={withPrefix('/2019-Exercise-video-links.pdf')}
+            target="_blank"
+          >
+            Exercise Video Links
+          </a>
+        </li>
       </ul>
     </Layout>
   )

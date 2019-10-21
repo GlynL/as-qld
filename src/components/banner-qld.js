@@ -9,7 +9,7 @@ import Navbar from './navbar'
 import Membership from './membership'
 
 const StyledSection = styled.section`
-  background: var(--main-bg-color);
+  background: var(--banner-bg-color);
 
   min-height: 100vh;
   padding-top: 0;
@@ -21,6 +21,17 @@ const Container = styled.div`
   align-items: center;
 `
 
+const StyledDiv = styled.div`
+  margin: 60px;
+  padding: 20px 40px;
+  max-width: 1200px;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  background: #fdfdfd;
+  border-radius: 5px;
+  box-shadow: var(--box-shadow)
+`
+
 const Banner = ({ data }) => (
   <StyledSection>
     <Navbar />
@@ -29,10 +40,11 @@ const Banner = ({ data }) => (
         <Img fluid={data.image.childImageSharp.fluid} />
         <Title>AS Group of QLD</Title>
       </header>
-      <div>
+      <StyledDiv>
         <p>
           Providing information and support to people living with AS, their
           partners, families and friends and the wider community.
+          <a href="#contact">contact</a>
         </p>
         <p>
           Supporting people living with AS by: Encouraging each person to take
@@ -41,7 +53,7 @@ const Banner = ({ data }) => (
           opportunities to meet socially. Encouraging research into the cause,
           management and prevention of AS.
         </p>
-      </div>
+      </StyledDiv>
     </Container>
   </StyledSection>
 )

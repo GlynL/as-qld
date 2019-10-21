@@ -5,6 +5,7 @@ import Title from './h2'
 const StyledSection = styled.section`
   display: flex;
   background: #fdfdfd;
+  padding-top: 50px;
 `
 
 const StyledDiv = styled.div`

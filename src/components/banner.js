@@ -36,39 +36,41 @@ const StyledP = styled.p`
 
 const Banner = ({ data }) =>
   console.log(data) || (
-    <StyledSection>
-      <Navbar />
-      <Container>
-        <StyledHeader>
-          <StyledImg fluid={data.logo.childImageSharp.fluid} />
-          <Title>Ankylosing Spondylitis Australia</Title>
-          <p>
-            This website provides a place for the state AS support groups to
-            present current information and details of activities.
-          </p>
-        </StyledHeader>
-        <ThreeHighlights
-          one={{
-            ...stateHighlights.qld,
-            image: data.qld.childImageSharp.fixed,
-          }}
-          two={{
-            ...stateHighlights.vic,
-            image: data.vic.childImageSharp.fixed,
-          }}
-          three={{
-            ...stateHighlights.wa,
-            image: data.sa.childImageSharp.fixed,
-          }}
-        />
-        <StyledP>
-          People in other states are encouraged and invited to join the QLD or
-          Vic group. This will enable you to receive the AS Australia newsletter
-          – four times per year – which includes current Australian and
-          international news, advances in management, details of educational and
-          social events, and a regular exercise segment.
-        </StyledP>
-      </Container>
+    <StyledSection style={{ background: 'var(--banner-bg-color)' }}>
+      <div>
+        <Navbar />
+        <Container>
+          <StyledHeader>
+            <StyledImg fluid={data.logo.childImageSharp.fluid} />
+            <Title>Ankylosing Spondylitis Australia</Title>
+            <p>
+              This website provides a place for the state AS support groups to
+              present current information and details of activities.
+            </p>
+          </StyledHeader>
+        </Container>
+      </div>
+      <ThreeHighlights
+        one={{
+          ...stateHighlights.qld,
+          image: data.qld.childImageSharp.fixed,
+        }}
+        two={{
+          ...stateHighlights.vic,
+          image: data.vic.childImageSharp.fixed,
+        }}
+        three={{
+          ...stateHighlights.wa,
+          image: data.sa.childImageSharp.fixed,
+        }}
+      />
+      <StyledP>
+        People in other states are encouraged and invited to join the QLD or Vic
+        group. This will enable you to receive the AS Australia newsletter –
+        four times per year – which includes current Australian and
+        international news, advances in management, details of educational and
+        social events, and a regular exercise segment.
+      </StyledP>
     </StyledSection>
   )
 

@@ -1,8 +1,9 @@
 import React from 'react'
-
+import { Link } from 'gatsby'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 
+import Form from '../components/form'
 import Title from '../components/h1'
 
 const Contact = () => (
@@ -11,9 +12,11 @@ const Contact = () => (
     <Title>Contact</Title>
     <div>
       <h2>National</h2>
+      <Form address="info@asaustralia.org" />
     </div>
     <div>
       <h2>Queensland</h2>
+      <Link to="/qld#contact">Send a message</Link>
     </div>
     <div>
       <h2>Victoria</h2>

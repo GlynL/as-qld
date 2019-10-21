@@ -1,16 +1,24 @@
 import React from 'react'
 import styled from 'styled-components'
 import Title from './h2'
+import Form from '../components/form'
 
 const StyledTitle = styled(Title)`
   text-align: center;
 `
 
+const StyledSection = styled.section`
+  padding: 20px 50px;
+  margin: 0 auto;
+  background: #f2f2f2;
+`
+
 const Contact = () => {
   return (
-    <section>
+    <StyledSection id="contact">
       <StyledTitle>Contact</StyledTitle>
-    </section>
+      <Form center address="asgroupqld@mscrobinson.net" />
+    </StyledSection>
   )
 }
 

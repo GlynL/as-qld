@@ -61,7 +61,7 @@ const Banner = ({ data }) =>
         }}
         three={{
           ...stateHighlights.wa,
-          image: data.sa.childImageSharp.fixed,
+          image: data.wa.childImageSharp.fixed,
         }}
       />
       <StyledP>
@@ -99,7 +99,7 @@ export default props => (
             }
           }
         }
-        sa: file(name: { in: "map-sa" }) {
+        wa: file(name: { in: "map-wa" }) {
           childImageSharp {
             fixed(width: 100, height: 100) {
               ...GatsbyImageSharpFixed

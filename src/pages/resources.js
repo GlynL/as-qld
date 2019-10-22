@@ -1,16 +1,39 @@
 import React from 'react'
-import { withPrefix } from 'gatsby'
+import { withPrefix, graphql } from 'gatsby'
+import Img from 'gatsby-image'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import Title from '../components/h1'
+import styled from 'styled-components'
 
-const Resources = () => {
+const StyledLiImage = styled.li`
+  display: flex;
+  align-items: flex-start;
+`
+
+const StyledUl = styled.ul`
+  list-style: none;
+`
+
+const StyledImg = styled(Img)`
+  margin-left: 20px;
+`
+
+const Resources = ({ data }) => {
   return (
     <Layout>
       <SEO title="resources"></SEO>
       <Title>Resources</Title>
-      <p>Resources for AS</p>
-      <ul>
+      <h2>Resources for AS</h2>
+      <StyledUl>
+        <li>
+          <a
+            href={withPrefix('/2019-Exercise-video-links.pdf')}
+            target="_blank"
+          >
+            Exercise Video Links
+          </a>
+        </li>
         <li>
           <a
             target="_blank"
@@ -21,17 +44,22 @@ const Resources = () => {
             Handbook
           </a>
         </li>
-      </ul>
-      <p>Exercises</p>
-      <p>links</p>
-      <ul>
+        <StyledLiImage>
+          <a href={withPrefix('/AS-booklet.pdf')} target="_blank">
+            Guidebook
+          </a>
+          <StyledImg fixed={data.guidebook.childImageSharp.fixed} />
+        </StyledLiImage>
+      </StyledUl>
+      <h2>links</h2>
+      <StyledUl>
         <li>
           <a
             target="_blank"
             rel="noopener noreferrer"
             href="http://asif.rheumanet.org/"
           >
-            Ankylosing Spondylitis International Federation (ASIF)
+            Axial Spondylitis IF (ASIF)
           </a>
         </li>
         <li>
@@ -108,22 +136,21 @@ const Resources = () => {
             Australian Physio Association (APA)
           </a>
         </li>
-        <li>
-          <a href={withPrefix('/AS-booklet.pdf')} target="_blank">
-            Guidebook
-          </a>
-        </li>
-        <li>
-          <a
-            href={withPrefix('/2019-Exercise-video-links.pdf')}
-            target="_blank"
-          >
-            Exercise Video Links
-          </a>
-        </li>
-      </ul>
+      </StyledUl>
     </Layout>
   )
 }
+
+export const query = graphql`
+  query ResourcesPageQuery {
+    guidebook: file(name: { in: "guidebook-cover" }) {
+      childImageSharp {
+        fixed(width: 200, height: 300) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+  }
+`
 
 export default Resources

@@ -1,3 +1,7 @@
+# dns
+* old - 66.96.149.21 - A (@ and www)
+* old - A*66.96.163.136
+
 https://www.gatsbyjs.org/docs/sourcing-from-netlify-cms/
 
 https://www.netlifycms.org/docs/add-to-your-site/

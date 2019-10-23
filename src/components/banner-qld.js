@@ -29,7 +29,7 @@ const StyledDiv = styled.div`
   line-height: 1.5;
   background: #fdfdfd;
   border-radius: 5px;
-  box-shadow: var(--box-shadow)
+  box-shadow: var(--box-shadow);
 `
 
 const Banner = ({ data }) => (
@@ -44,7 +44,6 @@ const Banner = ({ data }) => (
         <p>
           Providing information and support to people living with AS, their
           partners, families and friends and the wider community.
-          <a href="#contact">contact</a>
         </p>
         <p>
           Supporting people living with AS by: Encouraging each person to take

@@ -1,15 +1,10 @@
 import React from 'react'
-import { withPrefix, graphql } from 'gatsby'
+import { withPrefix, graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import Title from '../components/h1'
 import styled from 'styled-components'
-
-const StyledLiImage = styled.li`
-  display: flex;
-  align-items: flex-start;
-`
 
 const StyledUl = styled.ul`
   list-style: none;
@@ -17,6 +12,7 @@ const StyledUl = styled.ul`
 
 const StyledImg = styled(Img)`
   margin-left: 20px;
+  border: 1px solid var(--banner-bg-color);
 `
 
 const Resources = ({ data }) => {
@@ -27,6 +23,17 @@ const Resources = ({ data }) => {
       <h2>Resources for AS</h2>
       <StyledUl>
         <li>
+          <div>
+            <a href={withPrefix('/AS-booklet.pdf')} target="_blank">
+              Living with an inflammatory arthritis - Anylosing Spondylitis
+              Handbook
+            </a>
+          </div>
+          <div>
+            <StyledImg fixed={data.guidebook.childImageSharp.fixed} />
+          </div>
+        </li>
+        <li>
           <a
             href={withPrefix('/2019-Exercise-video-links.pdf')}
             target="_blank"
@@ -35,6 +42,12 @@ const Resources = ({ data }) => {
           </a>
         </li>
         <li>
+          The AS group of Queensland Land (free) & Pool ($15) Exercise DVD's -{' '}
+          <Link to="/qld#contact">Contact if interested</Link>
+          <Img fixed={data.dvds.childImageSharp.fixed} />
+        </li>
+        {/* same as guidebook */}
+        {/* <li>
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -43,15 +56,9 @@ const Resources = ({ data }) => {
             Living with an inflammatory arthritis - Anylosing Spondylitis
             Handbook
           </a>
-        </li>
-        <StyledLiImage>
-          <a href={withPrefix('/AS-booklet.pdf')} target="_blank">
-            Guidebook
-          </a>
-          <StyledImg fixed={data.guidebook.childImageSharp.fixed} />
-        </StyledLiImage>
+        </li> */}
       </StyledUl>
-      <h2>links</h2>
+      <h2>Links</h2>
       <StyledUl>
         <li>
           <a
@@ -146,6 +153,13 @@ export const query = graphql`
     guidebook: file(name: { in: "guidebook-cover" }) {
       childImageSharp {
         fixed(width: 200, height: 300) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    dvds: file(name: { in: "dvds" }) {
+      childImageSharp {
+        fixed(width: 450, height: 200) {
           ...GatsbyImageSharpFixed
         }
       }

@@ -11,38 +11,34 @@ const WesternAustralia = () => {
         <Title>Hydrotherapy Classes in WA</Title>
       </header>
       <section>
+        <h2>Hydrotherapy Classes</h2>
         <div>
+          <p>Sessions supervised by experienced Physiotherapists.</p>
           <p>
-            <strong>Hydrotherapy Classes</strong> are held at the Royal Perth
-            Rehabilitation Hospital every Monday evening (except Public
-            Holidays).
+            <strong>When:</strong> Monday evenings (Public holidays excepted).
           </p>
           <p>
-            <strong>Where:</strong> Royal Perth Rehabilitation Hospital Shenton
-            Park Annex, Selby St., Shenton Park
+            <strong>Time:</strong> Two sessions.
+            <br />
+            Hydrotherapy pool 5:45 or 6:45pm.
+            <br />
+            Gymnasium & pool 5:45 & 6:45pm.
+            <br />
+            For those current group members and those who have recently
+            participated in an AS program with the Hospital or the Arthritis
+            Foundation.
           </p>
           <p>
-            <strong>When:</strong> Every Monday evening (Public Holidays
-            excepted) 5:30pm Hydrotherapy exercises at Hydrotherapy Pool 5:45pm
-            Land Exercises at Gymnasium Total session time is 2 hours with
-            groups changing over at the end of the 1st hour
+            <strong>Where:</strong> Arthritis Wyllie Centre, 17 Lemnos Str,
+            SHENTON PARK.
           </p>
           <p>
-            <strong>Cost:</strong> $7.00
+            <strong>Cost:</strong> $12.00
           </p>
           <p>
-            <strong>Contact:</strong> 08 9382 7307 - Lindsay
-          </p>
-          <p>
-            <strong>Note:</strong> All sessions are conducted by experienced
-            Physiotherapists
-          </p>
-          <p>
-            <strong>
-              Another AS/spinal mobility Pool class is available at:
-            </strong>{' '}
-            South Care, St John of God Hospital - for details phone: 08 9366
-            1730
+            <strong>Enquiries:</strong> (08) 9388 2199
+            <br />
+            <a href="www.arthritiswa.org.au">www.arthritiswa.org.au</a>
           </p>
         </div>
       </section>

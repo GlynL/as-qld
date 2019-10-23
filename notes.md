@@ -1,6 +1,7 @@
 # dns
 * old - 66.96.149.21 - A (@ and www)
 * old - A*66.96.163.136
+* old name server - ns25.domaincontrol.com & ns26.domaincontrol.com
 
 https://www.gatsbyjs.org/docs/sourcing-from-netlify-cms/
 

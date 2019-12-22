@@ -54,11 +54,18 @@ const Form = ({ address, center }) => {
         required
       />
       <StyledLabel htmlFor="name">Name:</StyledLabel>
-      <StyledInput id="name" type="text" placeholder="John Doe" required />
-      <StyledLabel htmlFor="text">Message:</StyledLabel>
+      <StyledInput
+        id="name"
+        type="text"
+        placeholder="John Doe"
+        name="name"
+        required
+      />
+      <StyledLabel htmlFor="message">Message:</StyledLabel>
       <StyledInput
         as="textarea"
-        id="text"
+        id="message"
+        name="message"
         type="text"
         rows="10"
         cols="20"

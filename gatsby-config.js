@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Default Starter',
+    title: 'AS Australia',
     description:
-      'Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.',
-    author: '@gatsbyjs',
+      'AS Australia - Organisation for those suffering from Ankylosing Spondylitis in Australia.',
+    author: 'AS Australia',
   },
   plugins: [
     'gatsby-plugin-react-helmet',

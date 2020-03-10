@@ -42,11 +42,8 @@ const Banner = ({ data }) =>
         <Container>
           <StyledHeader>
             <StyledImg fluid={data.logo.childImageSharp.fluid} />
-            <Title>Ankylosing Spondylitis Australia</Title>
-            <p>
-              This website provides a place for the state AS support groups to
-              present current information and details of activities.
-            </p>
+            <Title>{data.content.heading}</Title>
+            <p>{data.content.subheading}</p>
           </StyledHeader>
         </Container>
       </div>
@@ -105,6 +102,10 @@ export default props => (
               ...GatsbyImageSharpFixed
             }
           }
+        }
+        content: contentfulLandingPage {
+          heading
+          subheading
         }
       }
     `}

@@ -38,7 +38,9 @@ const WesternAustralia = () => {
           <p>
             <strong>Enquiries:</strong> (08) 9388 2199
             <br />
-            <a href="https://www.arthritiswa.org.au" target="_blank">www.arthritiswa.org.au</a>
+            <a href="https://www.arthritiswa.org.au" target="_blank">
+              www.arthritiswa.org.au
+            </a>
           </p>
         </div>
       </section>

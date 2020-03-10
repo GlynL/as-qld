@@ -10,41 +10,41 @@ const { createFilePath } = require('gatsby-source-filesystem')
 
 const path = require('path')
 
-exports.createPages = ({ actions, graphql }) => {
-  const { createPage } = actions
+// exports.createPages = ({ actions, graphql }) => {
+//   const { createPage } = actions
 
-  const eventPostTemplate = path.resolve(`src/templates/eventTemplate.js`)
+//   const eventPostTemplate = path.resolve(`src/templates/eventTemplate.js`)
 
-  return graphql(`
-    {
-      allMarkdownRemark(limit: 1000) {
-        edges {
-          node {
-            id
-            fields {
-              slug
-            }
-          }
-        }
-      }
-    }
-  `).then(result => {
-    if (result.errors) {
-      return Promise.reject(result.errors)
-    }
+//   return graphql(`
+//     {
+//       allMarkdownRemark(limit: 1000) {
+//         edges {
+//           node {
+//             id
+//             fields {
+//               slug
+//             }
+//           }
+//         }
+//       }
+//     }
+//   `).then(result => {
+//     if (result.errors) {
+//       return Promise.reject(result.errors)
+//     }
 
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-      console.log('slug', node.fields.slug)
-      createPage({
-        path: 'events' + node.fields.slug,
-        component: eventPostTemplate,
-        context: {
-          id: node.id,
-        }, // additional data can be passed via context
-      })
-    })
-  })
-}
+//     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+//       console.log('slug', node.fields.slug)
+//       createPage({
+//         path: 'events' + node.fields.slug,
+//         component: eventPostTemplate,
+//         context: {
+//           id: node.id,
+//         }, // additional data can be passed via context
+//       })
+//     })
+//   })
+// }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions

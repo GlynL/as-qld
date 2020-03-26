@@ -52,7 +52,6 @@ export default ({ highlights }) => (
 )
 
 const Highlight = ({ title, text, image, link, last }) => {
-  console.log(image)
   return (
     <StyledDiv last={last}>
       <StyledDivHeading>

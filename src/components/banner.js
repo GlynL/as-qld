@@ -47,13 +47,7 @@ const Banner = ({ data, content, states }) => (
       </Container>
     </div>
     <ThreeHighlights highlights={states} />
-    <StyledP>
-      People in other states are encouraged and invited to join the QLD or Vic
-      group. This will enable you to receive the AS Australia newsletter – four
-      times per year – which includes current Australian and international news,
-      advances in management, details of educational and social events, and a
-      regular exercise segment.
-    </StyledP>
+    <StyledP>{content.blurb.blurb}</StyledP>
   </StyledSection>
 )
 

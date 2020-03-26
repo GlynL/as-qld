@@ -31,15 +31,15 @@ const Navbar = ({ data }) => (
     <StyledNavDiv>
       <Img fixed={data.logo.childImageSharp.fixed} />
       <NavLink to="/">Home</NavLink>
-      <NavLink to="about-as">About AS</NavLink>
-      <NavLink to="resources">Resources</NavLink>
-      <NavLink to="contact">Contact</NavLink>
+      <NavLink to="/about-as">About AS</NavLink>
+      <NavLink to="/resources">Resources</NavLink>
+      <NavLink to="/contact">Contact</NavLink>
     </StyledNavDiv>
     <StyledNavDiv>
       <NavLink to="/">National</NavLink>
-      <NavLink to="qld">QLD</NavLink>
-      <NavLink to="vic">VIC</NavLink>
-      <NavLink to="wa">WA</NavLink>
+      <NavLink to="/qld">QLD</NavLink>
+      <NavLink to="/vic">VIC</NavLink>
+      <NavLink to="/wa">WA</NavLink>
     </StyledNavDiv>
   </Nav>
 )

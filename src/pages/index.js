@@ -5,7 +5,6 @@ import ThreeHighlights from '../components/three-highlights'
 import { graphql } from 'gatsby'
 
 const IndexPage = ({ data }) => {
-  console.log(data)
   if (!data) {
     return null
   }
@@ -35,17 +34,21 @@ export const query = graphql`
     content: contentfulLandingPage {
       heading
       subheading
+      blurb {
+        blurb
+      }
     }
-    states: allContentfulState(filter: { landing_page: {} }) {
+    states: allContentfulState {
       edges {
         node {
-          name
-          info
+          title
+          text
           image {
             fixed(width: 140, height: 120) {
               ...GatsbyContentfulFixed
             }
           }
+          websiteLink
         }
       }
     }

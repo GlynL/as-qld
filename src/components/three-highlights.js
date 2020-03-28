@@ -36,27 +36,18 @@ const StyledLink = styled(Link)`
   margin-top: 1rem;
 `
 
-export default ({ one, two, three }) => (
+export default ({ highlights }) => (
   <StyledSection>
-    <Highlight
-      title={one.title}
-      text={one.text}
-      image={one.image}
-      link={one.link}
-    />
-    <Highlight
-      title={two.title}
-      text={two.text}
-      image={two.image}
-      link={two.link}
-    />
-    <Highlight
-      title={three.title}
-      text={three.text}
-      image={three.image}
-      link={three.link}
-      last
-    />
+    {highlights.edges.map((highlight, i) => (
+      <Highlight
+        key={highlight.node.id}
+        title={highlight.node.title}
+        text={highlight.node.text}
+        link={highlight.node.websiteLink}
+        image={highlight.node.image}
+        last={highlights.edges.length - 1 === i}
+      />
+    ))}
   </StyledSection>
 )
 
@@ -65,7 +56,7 @@ const Highlight = ({ title, text, image, link, last }) => {
     <StyledDiv last={last}>
       <StyledDivHeading>
         <StyledTitle>{title}</StyledTitle>
-        {image && <Img fixed={image} />}
+        {image && <Img fixed={image.fixed} />}
       </StyledDivHeading>
       <Paragraph>{text}</Paragraph>
       <StyledLink to={link}>Find out more</StyledLink>

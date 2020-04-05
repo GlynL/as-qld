@@ -1,6 +1,6 @@
 import React from 'react'
 import Banner from '../../components/banner-qld'
-import Highlights from '../../components/highlights'
+import Features from '../../components/features'
 import Contact from '../../components/contact'
 import SEO from '../../components/seo'
 import ClassInfo from '../../components/class-info'
@@ -19,7 +19,7 @@ const IndexPageQld = ({ data }) => {
         ]}
       />
       <Banner />
-      <Highlights />
+      <Features features={data.content.features} />
       <ClassInfo content={data.content.extraContent.json} />
       <Contact email={data.content.contactEmail} />
     </div>
@@ -33,6 +33,12 @@ export const query = graphql`
       title
       blurb {
         blurb
+      }
+      features {
+        title
+        text {
+          text
+        }
       }
       extraContent {
         json

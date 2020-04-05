@@ -17,6 +17,7 @@ export const options = {
       }
     },
   },
+  // add ability to have single new line - not a new paragraph
   renderText: text =>
     text.split('\n').flatMap((text, i) => [i > 0 && <br />, text]),
 }

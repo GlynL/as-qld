@@ -1,32 +1,72 @@
-import React from 'react'
-
+import React, { useState, useEffect } from 'react'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
-
 import Title from '../components/h1'
+import firebase from 'firebase'
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth'
 
-const Membership = () => (
-  <Layout>
-    <SEO title="Membership" />
-    <Title>Become a Member</Title>
-    <p>
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis, aperiam
-      amet, doloribus enim delectus, numquam distinctio provident quod
-      architecto in vitae ex doloremque fugiat incidunt nemo saepe repudiandae
-      nulla corporis!
-    </p>
-    <p>
-      Adipisci aut quos esse impedit voluptatem delectus ad nam, quibusdam,
-      natus hic architecto sit consequuntur repellat cum sapiente officia, vero
-      iusto. Laborum hic illo accusamus consequatur distinctio aperiam error
-      sapiente?
-    </p>
-    <p>
-      Eligendi, suscipit. Optio soluta cum quod veritatis quas inventore porro
-      consequatur dicta nemo voluptas. Laudantium atque sunt, illo esse modi
-      nobis delectus laborum doloribus quam nemo eligendi neque cupiditate hic.
-    </p>
-  </Layout>
-)
+// Configure Firebase.
+const config = {
+  apiKey: 'AIzaSyD3ASg9XiZYNXFGEk_F_HXYS3M-tA7Sn0E ',
+  authDomain: 'localhost',
+  // ...
+}
+firebase.initializeApp(config)
+
+// Configure FirebaseUI.
+const uiConfig = {
+  // Popup signin flow rather than redirect flow.
+  signInFlow: 'popup',
+  // Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
+  signInSuccessUrl: '/membership',
+  // We will display Google and Facebook as auth providers.
+  signInOptions: [
+    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+    firebase.auth.EmailAuthProvider.PROVIDER_ID,
+  ],
+}
+
+const Membership = () => {
+  const [state, setState] = useState('loading')
+  const [user, setUser] = useState(null)
+
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        setUser(user)
+        setState('authed')
+      } else {
+        setUser(null)
+        setState('no-auth')
+      }
+    })
+  }, [])
+
+  return (
+    <Layout>
+      <SEO title="Membership" />
+      {state === 'loading' && <div>loading..</div>}
+      {state === 'no-auth' && <Auth />}
+      {state === 'authed' && <Account user={user} />}
+    </Layout>
+  )
+}
 
 export default Membership
+
+const Auth = () => {
+  return (
+    <>
+      <Title>Become a Member</Title>
+      <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
+    </>
+  )
+}
+
+const Account = ({ user }) => {
+  return (
+    <>
+      <Title>Membership Status</Title>
+    </>
+  )
+}

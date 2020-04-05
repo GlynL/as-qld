@@ -1,10 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Banner from '../components/banner'
 import SEO from '../components/seo'
 import ThreeHighlights from '../components/three-highlights'
 import { graphql } from 'gatsby'
 
 const IndexPage = ({ data }) => {
+useEffect(() => {
+ (async function() {
+  const res = await fetch(`https://us-central1-as-aus.cloudfunctions.net/helloWorld`);
+  const data = await res.json();
+  console.log(data);
+ })()
+}, [])
+
   if (!data) {
     return null
   }

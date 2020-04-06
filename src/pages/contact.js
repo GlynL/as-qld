@@ -12,7 +12,7 @@ const Contact = () => (
     <Title>Contact</Title>
     <div>
       <h2>National</h2>
-      <Form address="info@asaustralia.org" />
+      <Form address="qld@asaustralia.org" />
     </div>
     <div>
       <h2>Queensland</h2>

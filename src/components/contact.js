@@ -17,7 +17,7 @@ const Contact = () => {
   return (
     <StyledSection id="contact">
       <StyledTitle>Contact</StyledTitle>
-      <Form center address="asgroupqld@mscrobinson.net" />
+      <Form center address="qld@asaustralia.org" />
     </StyledSection>
   )
 }

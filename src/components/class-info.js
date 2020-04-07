@@ -1,6 +1,7 @@
 import React from 'react'
 import Title from './h2'
 import styled from 'styled-components'
+import Banner from './ui/banner'
 
 const StyledTitle = styled(Title)`
   text-align: center;
@@ -15,6 +16,7 @@ const ClassInfo = () => {
   return (
     <StyledSection>
       <StyledTitle>Class Info</StyledTitle>
+      <Banner text="Classes are currently stopped due to COVID-19 restrictions. They will resume once the hospital lifts restrictions." />
       <div>
         <p>Sessions supervised by Margaret Lewington (Physiotherapist).</p>
         <p>

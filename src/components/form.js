@@ -43,7 +43,7 @@ const Form = ({ address, center }) => {
     <StyledForm
       center={center}
       method="post"
-      action={`https://formspree.io/${address}`}
+      action={`https://formspree.io/f/${address}`}
     >
       <StyledLabel htmlFor="email">Your Email:</StyledLabel>
       <StyledInput

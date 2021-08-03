@@ -13,11 +13,11 @@ const StyledSection = styled.section`
   background: #f2f2f2;
 `
 
-const Contact = ({ email }) => {
+const Contact = ({ id }) => {
   return (
     <StyledSection id="contact">
       <StyledTitle>Contact</StyledTitle>
-      <Form center address={email} />
+      <Form center id={id} />
     </StyledSection>
   )
 }

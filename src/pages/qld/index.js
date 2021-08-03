@@ -21,7 +21,7 @@ const IndexPageQld = ({ data }) => {
       <Banner />
       <Features features={data.content.features} />
       <ClassInfo content={data.content.extraContent.json} />
-      <Contact email={data.content.contactEmail} />
+      <Contact id={'mqkgddnb'} />
     </div>
   )
 }

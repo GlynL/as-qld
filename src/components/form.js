@@ -38,12 +38,12 @@ const StyledButton = styled.button`
   }
 `
 
-const Form = ({ address, center }) => {
+const Form = ({ id, center }) => {
   return (
     <StyledForm
       center={center}
       method="post"
-      action={`https://formspree.io/${address}`}
+      action={`https://formspree.io/f/${id}`}
     >
       <StyledLabel htmlFor="email">Your Email:</StyledLabel>
       <StyledInput

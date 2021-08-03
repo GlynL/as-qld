@@ -1,6 +1,8 @@
 import React from 'react'
 import Title from './h2'
 import styled from 'styled-components'
+import { options } from '../helpers/dataTransform'
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import Banner from './ui/banner'
 
 const StyledTitle = styled(Title)`
@@ -12,30 +14,11 @@ const StyledSection = styled.section`
   background: var(--main-bg-color);
 `
 
-const ClassInfo = () => {
+const ClassInfo = ({ content }) => {
   return (
     <StyledSection>
       <StyledTitle>Class Info</StyledTitle>
-      <Banner text="Classes are currently stopped due to COVID-19 restrictions. They will resume once the hospital lifts restrictions." />
-      <div>
-        <p>Sessions supervised by Margaret Lewington (Physiotherapist).</p>
-        <p>
-          <strong>When: </strong>Tuesday evenings
-        </p>
-        <p>
-          <strong>Time: </strong>6:30 - 7:30pm
-        </p>
-        <p>
-          <strong>Where: </strong>Hydrotherapy Pool, Level 2, Ned Hanlon
-          Building Royal Brisbane & Women's Hospital, Butterfield St, HERSTON
-        </p>
-        <p>
-          <strong>Cost: </strong>$15 or 10 classes for $140
-        </p>
-        <p>
-          <strong>Enquiries: </strong>Margaret - 0404 414 501
-        </p>
-      </div>
+      {documentToReactComponents(content, options)}
     </StyledSection>
   )
 }

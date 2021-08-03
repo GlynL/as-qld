@@ -16,13 +16,6 @@ module.exports = {
     },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `events`,
-        path: `${__dirname}/event`,
-      },
-    },
     'gatsby-transformer-remark',
     {
       resolve: `gatsby-plugin-manifest`,
@@ -37,7 +30,13 @@ module.exports = {
       },
     },
     'gatsby-plugin-styled-components',
-    'gatsby-plugin-netlify-cms',
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: `e5y71gk99sra`,
+        accessToken: `E0I8yyjGt5zGLVLhKqW_mCBNIopZt0-V_GmiZCTHevA`,
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',

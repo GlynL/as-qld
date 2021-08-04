@@ -39,6 +39,7 @@ module.exports = {
       options: {
         spaceId: `alpp7yh9kfj0`,
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+        host: process.env.CONTENTFUL_HOST || 'cdn.contentful.com',
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionalgity

@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: 'AS Australia',
@@ -33,11 +37,11 @@ module.exports = {
     {
       resolve: `gatsby-source-contentful`,
       options: {
-        spaceId: `e5y71gk99sra`,
-        accessToken: `E0I8yyjGt5zGLVLhKqW_mCBNIopZt0-V_GmiZCTHevA`,
+        spaceId: `alpp7yh9kfj0`,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
+    // this (optional) plugin enables Progressive Web App + Offline functionalgity
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',
   ],

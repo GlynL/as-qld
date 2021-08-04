@@ -21,7 +21,9 @@ export default Victoria
 
 export const query = graphql`
   {
-    content: contentfulContentPage(title: { eq: "Resources" }) {
+    content: contentfulContentPage(
+      title: { eq: "Ankylosing Spondylitis Victoria Inc" }
+    ) {
       title
       content {
         json

@@ -1,3 +1,4 @@
+import 'dotenv/config'
 import React from 'react'
 import Banner from '../components/banner'
 import SEO from '../components/seo'
